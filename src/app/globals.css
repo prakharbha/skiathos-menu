@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-catamaran: var(--font-catamaran);
+  --color-background: #F4EFE8;
+  --color-foreground: #3A3834;
+}
+
+:root {
+  --background: #F4EFE8;
+  --foreground: #3A3834;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-catamaran), sans-serif;
+}
