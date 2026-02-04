@@ -7,21 +7,21 @@ interface CollapsibleCategoryProps {
     title: string;
     serviceHours?: string;
     children: React.ReactNode;
-    defaultOpen?: boolean;
+    isOpen: boolean;
+    onToggle: () => void;
 }
 
 export default function CollapsibleCategory({
     title,
     serviceHours,
     children,
-    defaultOpen = false,
+    isOpen,
+    onToggle,
 }: CollapsibleCategoryProps) {
-    const [isOpen, setIsOpen] = useState(defaultOpen);
-
     return (
         <div className="mb-4">
             <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={onToggle}
                 className="w-full flex items-center justify-between py-3 border-b border-[#3A3834] text-left group"
             >
                 <span className="text-xl md:text-2xl font-medium text-[#3A3834] uppercase tracking-wide">

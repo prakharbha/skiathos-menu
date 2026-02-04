@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Footer from "@/components/layout/Footer";
 import CollapsibleCategory from "@/components/ui/CollapsibleCategory";
 import MenuItem from "@/components/ui/MenuItem";
@@ -7,8 +10,13 @@ import { menuData } from "@/data/menu";
 
 export default function BeveragesPage() {
     const drinksData = menuData.find((section) => section.id === "beverages");
+    const [openCategoryIndex, setOpenCategoryIndex] = useState<number | null>(null);
 
     if (!drinksData) return null;
+
+    const handleToggle = (index: number) => {
+        setOpenCategoryIndex(prevIndex => (prevIndex === index ? null : index));
+    };
 
     return (
         <div className="min-h-screen flex flex-col items-center">
@@ -22,7 +30,8 @@ export default function BeveragesPage() {
                     <CollapsibleCategory
                         key={index}
                         title={category.title}
-                        defaultOpen={index === 0}
+                        isOpen={openCategoryIndex === index}
+                        onToggle={() => handleToggle(index)}
                         serviceHours="10:00 - 23:00"
                     >
                         <div className="space-y-4">
