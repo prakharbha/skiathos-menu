@@ -2,12 +2,12 @@
 
 @theme {
   --font-catamaran: var(--font-catamaran);
-  --color-background: #F4EFE8;
+  --color-background: #E8F0EC;
   --color-foreground: #3A3834;
 }
 
 :root {
-  --background: #F4EFE8;
+  --background: #E8F0EC;
   --foreground: #3A3834;
 }
 

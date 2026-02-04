@@ -1,8 +1,8 @@
 import Footer from "@/components/layout/Footer";
-import SectionCard from "@/components/ui/SectionCard";
-import CategoryHeader from "@/components/ui/CategoryHeader";
+import CollapsibleCategory from "@/components/ui/CollapsibleCategory";
 import MenuItem from "@/components/ui/MenuItem";
 import BackButton from "@/components/ui/BackButton";
+import AllergyNotice from "@/components/ui/AllergyNotice";
 import { menuData } from "@/data/menu";
 
 export default function FoodPage() {
@@ -15,23 +15,33 @@ export default function FoodPage() {
             <BackButton />
 
             <main className="flex-1 w-full max-w-3xl px-4 py-8 mt-12">
-                <SectionCard className="mb-8">
-                    {foodData.categories.map((category, index) => (
-                        <div key={index} className="mb-8 last:mb-0">
-                            <CategoryHeader title={category.title} />
-                            <div className="space-y-4">
-                                {category.items.map((item, itemIndex) => (
-                                    <MenuItem
-                                        key={itemIndex}
-                                        name={item.name}
-                                        description={item.description}
-                                        price={item.price}
-                                    />
-                                ))}
-                            </div>
+                <h1 className="text-3xl md:text-4xl font-medium text-[#3A3834] text-center mb-8">
+                    Food Menu
+                </h1>
+                <p className="text-sm text-gray-500 text-center mb-8">
+                    Service Hours: 13:00 - 22:30
+                </p>
+
+                {foodData.categories.map((category, index) => (
+                    <CollapsibleCategory
+                        key={index}
+                        title={category.title}
+                        defaultOpen={index === 0}
+                    >
+                        <div className="space-y-4">
+                            {category.items.map((item, itemIndex) => (
+                                <MenuItem
+                                    key={itemIndex}
+                                    name={item.name}
+                                    description={item.description}
+                                    price={item.price}
+                                />
+                            ))}
                         </div>
-                    ))}
-                </SectionCard>
+                    </CollapsibleCategory>
+                ))}
+
+                <AllergyNotice />
             </main>
 
             <Footer />
