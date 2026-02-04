@@ -18,15 +18,12 @@ export default function BeveragesPage() {
                 <h1 className="text-3xl md:text-4xl font-medium text-[#3A3834] text-center mb-8">
                     Beverages
                 </h1>
-                <p className="text-sm text-gray-500 text-center mb-8">
-                    Service Hours: 10:00 - 23:00
-                </p>
-
                 {drinksData.categories.map((category, index) => (
                     <CollapsibleCategory
                         key={index}
                         title={category.title}
                         defaultOpen={index === 0}
+                        serviceHours="10:00 - 23:00"
                     >
                         <div className="space-y-4">
                             {category.items.map((item, itemIndex) => (

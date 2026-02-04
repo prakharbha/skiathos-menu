@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+
 
 interface CollapsibleCategoryProps {
     title: string;
@@ -27,10 +27,6 @@ export default function CollapsibleCategory({
                 <span className="text-xl md:text-2xl font-medium text-[#3A3834] uppercase tracking-wide">
                     {title}
                 </span>
-                <ChevronDown
-                    className={`w-6 h-6 text-[#3A3834] transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-                        }`}
-                />
             </button>
 
             <div
