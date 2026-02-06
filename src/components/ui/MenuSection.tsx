@@ -60,6 +60,9 @@ export default function MenuSection({ title, categories }: MenuSectionProps) {
                                 {category.note}
                             </p>
                         )}
+                        <p className="text-sm text-[#3A3834] mt-6 italic text-center">
+                            Menu Crafted by Chef Honda Radu
+                        </p>
                     </div>
                 </CollapsibleCategory>
             ))}
