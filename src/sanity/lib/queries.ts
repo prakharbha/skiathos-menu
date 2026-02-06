@@ -6,6 +6,7 @@ export const SECTION_QUERY = defineQuery(`
     "categories": categories[]->{
       title,
       serviceHours,
+      note,
       "items": items[]->{
         name,
         description,

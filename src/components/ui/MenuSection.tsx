@@ -15,6 +15,7 @@ interface MenuItemData {
 interface CategoryData {
     title: string;
     serviceHours?: string;
+    note?: string;
     items: MenuItemData[];
 }
 
@@ -54,6 +55,11 @@ export default function MenuSection({ title, categories }: MenuSectionProps) {
                                 price={item.price}
                             />
                         ))}
+                        {category.note && (
+                            <p className="text-sm text-[#3A3834] mt-6 italic pt-4 border-t border-gray-200">
+                                {category.note}
+                            </p>
+                        )}
                     </div>
                 </CollapsibleCategory>
             ))}

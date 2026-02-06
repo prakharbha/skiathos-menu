@@ -17,6 +17,12 @@ export default defineType({
             description: 'e.g., "13:00 - 22:30"',
         }),
         defineField({
+            name: 'note',
+            title: 'Note',
+            type: 'text',
+            description: 'Optional note to display at the end of this category (e.g., vegan milk options)',
+        }),
+        defineField({
             name: 'items',
             title: 'Items',
             type: 'array',
