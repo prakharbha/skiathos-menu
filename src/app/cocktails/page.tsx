@@ -4,6 +4,8 @@ import MenuSection from "@/components/ui/MenuSection";
 import { client } from "@/sanity/lib/client";
 import { SECTION_QUERY } from "@/sanity/lib/queries";
 
+export const revalidate = 60;
+
 export default async function CocktailsPage() {
     const cocktailsData = await client.fetch(SECTION_QUERY, { slug: "cocktails" });
 
