@@ -28,6 +28,25 @@ export default defineType({
             type: 'array',
             of: [{ type: 'reference', to: [{ type: 'menuItem' }] }],
         }),
+        defineField({
+            name: 'subCategories',
+            title: 'Subcategories',
+            type: 'array',
+            of: [
+                {
+                    type: 'object',
+                    fields: [
+                        { name: 'title', title: 'Subcategory Title', type: 'string' },
+                        {
+                            name: 'items',
+                            title: 'Items',
+                            type: 'array',
+                            of: [{ type: 'reference', to: [{ type: 'menuItem' }] }],
+                        },
+                    ],
+                },
+            ],
+        }),
     ],
     preview: {
         select: {

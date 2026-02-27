@@ -12,6 +12,15 @@ export const SECTION_QUERY = defineQuery(`
         description,
         price,
         allergens
+      },
+      subCategories[]{
+        title,
+        "items": items[]->{
+          name,
+          description,
+          price,
+          allergens
+        }
       }
     }
   }

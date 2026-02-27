@@ -12,11 +12,17 @@ interface MenuItemData {
     price?: string;
 }
 
+interface SubCategoryData {
+    title: string;
+    items: MenuItemData[];
+}
+
 interface CategoryData {
     title: string;
     serviceHours?: string;
     note?: string;
     items: MenuItemData[];
+    subCategories?: SubCategoryData[];
 }
 
 interface MenuSectionProps {
@@ -47,7 +53,7 @@ export default function MenuSection({ title, categories }: MenuSectionProps) {
                     serviceHours={category.serviceHours}
                 >
                     <div className="space-y-4">
-                        {category.items.map((item, itemIndex) => (
+                        {category.items?.map((item, itemIndex) => (
                             <MenuItem
                                 key={itemIndex}
                                 name={item.name}
@@ -55,6 +61,25 @@ export default function MenuSection({ title, categories }: MenuSectionProps) {
                                 price={item.price}
                             />
                         ))}
+
+                        {category.subCategories?.map((subCategory, subIndex) => (
+                            <div key={`sub-${subIndex}`} className="mt-8 pt-4">
+                                <h3 className="text-xl font-bold text-[#3A3834] uppercase mb-4 text-center tracking-wide">
+                                    {subCategory.title}
+                                </h3>
+                                <div className="space-y-4">
+                                    {subCategory.items?.map((item, itemIndex) => (
+                                        <MenuItem
+                                            key={itemIndex}
+                                            name={item.name}
+                                            description={item.description}
+                                            price={item.price}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+
                         {category.note && (
                             <p className="text-sm text-[#3A3834] mt-6 italic pt-4 border-t border-gray-200">
                                 {category.note}
