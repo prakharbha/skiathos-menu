@@ -5,6 +5,17 @@ export const structure: StructureResolver = (S) =>
     S.list()
         .title('Menu Management')
         .items([
+            // Global Settings Singleton
+            S.listItem()
+                .title('Global Settings')
+                .id('globalSettings')
+                .child(
+                    S.document()
+                        .schemaType('globalSettings')
+                        .documentId('globalSettings')
+                ),
+            S.divider(),
+
             // Sections at the top
             S.documentTypeListItem('section')
                 .title('Menu Sections'),
