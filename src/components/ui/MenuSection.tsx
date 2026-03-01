@@ -86,9 +86,11 @@ export default function MenuSection({ title, categories, menuFooterText }: MenuS
                                 {category.note}
                             </p>
                         )}
-                        <p className="text-sm text-[#3A3834] mt-6 italic text-center pt-4 border-t border-gray-200">
-                            {menuFooterText || "Menu Crafted by Chef Honda Radu"}
-                        </p>
+                        {menuFooterText && (
+                            <p className="text-sm text-[#3A3834] mt-6 italic text-center pt-4 border-t border-gray-200">
+                                {menuFooterText}
+                            </p>
+                        )}
                     </div>
                 </CollapsibleCategory>
             ))}
