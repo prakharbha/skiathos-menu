@@ -12,6 +12,8 @@ export default async function FoodPage() {
         client.fetch(GLOBAL_SETTINGS_QUERY)
     ]);
 
+    console.log("==> SANITY GLOBAL SETTINGS FETCH RESULT:", globalSettings);
+
     if (!foodData) return null;
 
     return (
