@@ -2,11 +2,12 @@ interface MenuItemProps {
     name: string;
     description?: string;
     price?: string;
+    showDivider?: boolean;
 }
 
-export default function MenuItem({ name, description, price }: MenuItemProps) {
+export default function MenuItem({ name, description, price, showDivider }: MenuItemProps) {
     return (
-        <div className="py-2 mb-2 break-inside-avoid">
+        <div className={`py-2 mb-2 break-inside-avoid${showDivider ? " border-b border-[#3A3834]/20 pb-3" : ""}`}>
             <div className="flex justify-between items-baseline">
                 <h3 className="text-lg font-bold text-[#3A3834] uppercase leading-tight">{name}</h3>
                 {price && <span className="text-lg font-bold ml-4 whitespace-nowrap">{price}€</span>}
