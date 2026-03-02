@@ -7,12 +7,12 @@ export const SECTION_QUERY = defineQuery(`
       title,
       serviceHours,
       note,
-      showItemDivider,
       "items": items[]->{
         name,
         description,
         price,
-        allergens
+        allergens,
+        showDivider
       },
       subCategories[]{
         title,
@@ -21,7 +21,8 @@ export const SECTION_QUERY = defineQuery(`
           name,
           description,
           price,
-          allergens
+          allergens,
+          showDivider
         }
       }
     }

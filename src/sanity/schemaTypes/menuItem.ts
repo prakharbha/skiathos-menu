@@ -26,6 +26,13 @@ export default defineType({
             type: 'array',
             of: [{ type: 'string' }],
         }),
+        defineField({
+            name: 'showDivider',
+            title: 'Show Divider Below Item',
+            type: 'boolean',
+            description: 'When enabled, a border line will be shown below this item to highlight it.',
+            initialValue: false,
+        }),
     ],
     preview: {
         select: {

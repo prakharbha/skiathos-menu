@@ -10,11 +10,11 @@ interface MenuItemData {
     name: string;
     description?: string;
     price?: string;
+    showDivider?: boolean;
 }
 
 interface SubCategoryData {
     title: string;
-    showItemDivider?: boolean;
     items: MenuItemData[];
 }
 
@@ -22,7 +22,6 @@ interface CategoryData {
     title: string;
     serviceHours?: string;
     note?: string;
-    showItemDivider?: boolean;
     items: MenuItemData[];
     subCategories?: SubCategoryData[];
 }
@@ -62,7 +61,7 @@ export default function MenuSection({ title, categories, menuFooterText }: MenuS
                                 name={item.name}
                                 description={item.description}
                                 price={item.price}
-                                showDivider={category.showItemDivider}
+                                showDivider={item.showDivider}
                             />
                         ))}
 
@@ -78,7 +77,7 @@ export default function MenuSection({ title, categories, menuFooterText }: MenuS
                                             name={item.name}
                                             description={item.description}
                                             price={item.price}
-                                            showDivider={subCategory.showItemDivider}
+                                            showDivider={item.showDivider}
                                         />
                                     ))}
                                 </div>

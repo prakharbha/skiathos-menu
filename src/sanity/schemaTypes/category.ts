@@ -23,13 +23,6 @@ export default defineType({
             description: 'Optional note to display at the end of this category (e.g., vegan milk options)',
         }),
         defineField({
-            name: 'showItemDivider',
-            title: 'Show Divider Below Each Item',
-            type: 'boolean',
-            description: 'When enabled, a border line will appear below each menu item in this category.',
-            initialValue: false,
-        }),
-        defineField({
             name: 'items',
             title: 'Items',
             type: 'array',
@@ -44,13 +37,6 @@ export default defineType({
                     type: 'object',
                     fields: [
                         { name: 'title', title: 'Subcategory Title', type: 'string' },
-                        {
-                            name: 'showItemDivider',
-                            title: 'Show Divider Below Each Item',
-                            type: 'boolean',
-                            description: 'When enabled, a border line will appear below each menu item in this subcategory.',
-                            initialValue: false,
-                        },
                         {
                             name: 'items',
                             title: 'Items',
