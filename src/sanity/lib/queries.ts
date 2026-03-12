@@ -38,6 +38,7 @@ export const ALL_SECTIONS_QUERY = defineQuery(`
 
 export const GLOBAL_SETTINGS_QUERY = defineQuery(`
   *[_type == "globalSettings"][0]{
-    menuFooterText
+    menuFooterText,
+    homepageTagline
   }
 `)
