@@ -34,6 +34,13 @@ export default function Home() {
             >
               Cocktails
             </Link>
+
+            <Link
+              href="/shisha"
+              className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
+            >
+              Shisha
+            </Link>
           </div>
         </SectionCard>
       </main>
