@@ -30,7 +30,7 @@ export const SECTION_QUERY = defineQuery(`
 `)
 
 export const ALL_SECTIONS_QUERY = defineQuery(`
-  *[_type == "section"] | order(_createdAt asc) {
+  *[_type == "section"] | order(sortOrder asc, _createdAt asc) {
     name,
     "slug": slug.current
   }

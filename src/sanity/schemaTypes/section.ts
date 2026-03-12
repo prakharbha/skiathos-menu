@@ -20,6 +20,12 @@ export default defineType({
             },
         }),
         defineField({
+            name: 'sortOrder',
+            title: 'Sort Order',
+            type: 'number',
+            description: 'Controls the order sections appear on the homepage. Lower numbers appear first.',
+        }),
+        defineField({
             name: 'categories',
             title: 'Categories',
             type: 'array',
