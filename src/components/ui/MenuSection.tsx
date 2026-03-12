@@ -46,7 +46,7 @@ export default function MenuSection({ title, categories, menuFooterText }: MenuS
                 {title}
             </h1>
 
-            {categories.map((category, index) => (
+            {(categories ?? []).map((category, index) => (
                 <CollapsibleCategory
                     key={index}
                     title={category.title}
