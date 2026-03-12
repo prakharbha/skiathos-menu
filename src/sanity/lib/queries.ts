@@ -29,6 +29,13 @@ export const SECTION_QUERY = defineQuery(`
   }
 `)
 
+export const ALL_SECTIONS_QUERY = defineQuery(`
+  *[_type == "section"] | order(_createdAt asc) {
+    name,
+    "slug": slug.current
+  }
+`)
+
 export const GLOBAL_SETTINGS_QUERY = defineQuery(`
   *[_type == "globalSettings"][0]{
     menuFooterText

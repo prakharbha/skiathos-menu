@@ -2,8 +2,14 @@ import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SectionCard from "@/components/ui/SectionCard";
+import { client } from "@/sanity/lib/client";
+import { ALL_SECTIONS_QUERY } from "@/sanity/lib/queries";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const sections = await client.fetch(ALL_SECTIONS_QUERY);
+
   return (
     <div className="min-h-screen flex flex-col items-center">
       <Header />
@@ -14,33 +20,15 @@ export default function Home() {
             Experience Premier Gastronomy, Drinks, Relaxation, and Shisha Delights
           </h2>
           <div className="flex flex-col gap-4 w-full max-w-sm mx-auto">
-            <Link
-              href="/food"
-              className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
-            >
-              Food
-            </Link>
-
-            <Link
-              href="/beverages"
-              className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
-            >
-              Beverages
-            </Link>
-
-            <Link
-              href="/cocktails"
-              className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
-            >
-              Cocktails
-            </Link>
-
-            <Link
-              href="/shisha"
-              className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
-            >
-              Shisha
-            </Link>
+            {sections?.map((section: { name: string; slug: string }) => (
+              <Link
+                key={section.slug}
+                href={`/${section.slug}`}
+                className="w-full h-[72px] bg-[#3a3834] text-[#f4efe8] rounded-lg shadow-md flex items-center justify-center text-[18px] font-medium border-b-4 border-[#f4efe8]/20 hover:border-[#f4efe8]/40 hover:scale-[1.03] transition-all duration-300"
+              >
+                {section.name}
+              </Link>
+            ))}
           </div>
         </SectionCard>
       </main>
